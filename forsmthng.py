@@ -264,12 +264,20 @@ def transmit_dec_to_bin(number):
 
     return  int(bin[::-1])
 
-print(transmit_dec_to_bin(45846415))
+# print(transmit_dec_to_bin(45846415))
 
 
+class CurrentFinder:
+    def __init__(self, k, I):
+        self.k = k
+        self.I = I
 
+    def needed_current(self, t=20):
+        self.i = ((((self.k * 80)/t) + 1) ** 0.5) * self.I
+        return self.i
 
-
+q = CurrentFinder(0.6, 36)
+print(q.needed_current())
 
 
 
